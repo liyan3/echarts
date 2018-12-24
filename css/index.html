@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$gameTitle}</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="__STATIC__/css/public.css">
+    <link rel="stylesheet" href="__STATIC__/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="__STATIC__/css/style.css" />
+    <script src="__STATIC__/js/jquery.js"></script>
+    <script src="__STATIC__/js/rem.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        wx.config({
+              debug: false,
+              appId: '{$sign.appId}',
+              timestamp: {$sign.timestamp},
+          nonceStr: '{$sign.nonceStr}',
+          signature: '{$sign.signature}',
+          jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onRecordEnd',
+            'playVoice',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard'
+          ]
+        });
+
+        wx.ready(function() {
+          wx.onMenuShareAppMessage({
+            title: '{$gameTitle}', // 分享标题
+            desc: '{$shareTitle}', // 分享描述
+            link: '{$shareUrl1}/Index/index?fid={$id}', // 分享链接
+            imgUrl: '{$baseurl}/__APP__/static/{$shareImg}', // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function() {
+              window.location.replace("{:U('ShareRecord/record')}?thisUrl={:U('Index/index')}&redirectUrl={:U('Index/index')}&method=hy");
+            },
+            cancel: function() {
+              //alert(2);
+            }
+          });
+
+          wx.onMenuShareTimeline({
+            title: '{$gameTitle}', // 分享标题
+            desc: '{$shareTitle}', // 分享描述
+            link: '{$shareUrl2}/Index/index?fid={$id}', // 分享链接
+            imgUrl: '{$baseurl}/__APP__/static/{$shareImg}', // 分享图标
+            success: function() {
+              window.location.replace("{:U('ShareRecord/record')}?thisUrl={:U('Index/index')}&redirectUrl={:U('Index/index')}&method=pyq");
+            },
+            cancel: function() {
+              // 用户取消分享后执行的回调函数
+            }
+          });
+          wx.hideMenuItems({
+                menuList: [
+                'menuItem:copyUrl',
+                'menuItem:openWithQQBrowser'
+                ]
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="index">
+        <img src="__STATIC__/images/logo.png" class="logo animated bounceInDown" onclick="javascript:return false">
+        <img src="__STATIC__/images/in1.png" style="width: 24%;" class="in1 animated slideInLeft" onclick="javascript:return false">
+        <img src="__STATIC__/images/in2.png" class="in2 animated" onclick="javascript:return false">        
+        <a href="javascript:void(0)" class="touch">
+            <img src="__STATIC__/images/arror.png" alt="">
+        </a>
+    </div> 
+    <script>
+     $(function(){
+        $('body').on('touchmove',function(e){
+            e.preventDefault;
+        })
+        $('#index').css("height",$('body').height())
+        $('input').on('touchstart',function(){
+            setTimeout(function(){
+                $('body').scrollIntoView(/*true和false选填,根据对齐方式*/);
+            },400);
+        });
+        
+        movePage($('#index'));
+         function movePage(dom){
+             var startY,moveY,moveSpave;
+            dom.on('touchstart',function(e){
+               startY = e.originalEvent.touches[0].pageY;
+               return startY;
+            })
+            dom.on('touchmove',function(e){
+              e.preventDefault();
+              moveY = e.originalEvent.touches[0].pageY;
+              moveSpave = startY - moveY;
+              if(moveSpave > 15){
+                  location.href = "{:U('Index/main')}";
+              }                
+            })
+         } 
+     })
+   </script>
+</body>
+</html>

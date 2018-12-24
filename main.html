@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/rem.js"></script>
+</head>
+<body>
+    <div id="main">
+        <img src="images/bk1.png" class="logo animated bounceInDown" onclick="javascript:return false">
+        <img src="images/in1.png" class="in1 animated slideInLeft" onclick="javascript:return false">
+        <img src="images/btnrule.png" class="btnrule animated pulse infinite" onclick="javascript:return false">
+        <!-- <img src="images/inqiqiu.png" alt="" class="inqiqiu" style="top: 2%;width: 20%"> -->
+        <div>
+            中国有 <span style="color: #ffe346;font-size: 0.34rem;">34</span> 个省级行政区， <span style="color: #ffe346;font-size: 0.34rem;">660</span> 个城市 <br>你打卡过多少城市的美食？
+        </div>
+        <img src="images/bk3.png" alt="" style="width: 80%">
+        <a href="javascript:void(0)" class="begin">
+           开始
+        </a>
+    </div> 
+    <!-- 规则 -->
+    <div class="rule flow" style="display: none">
+        <div>
+            <ul>
+                <li>活动时间：11月23日-12月8日<br></li><br>
+                <li>关注水平方微信，
+                    参与线上美食派对，
+                打卡你吃过的城市美食即可参与水平方锦鲤抽奖</li>
+                <li>12月8日35个城市杯，独宠1人。<br></li><br>
+                <li>奖项设置：</li> 
+                <li>35座城市YAH系统星巴克城市杯<br></li>
+                <li>开奖日期：
+                    12月8日18:00<br></li>
+                <li>领奖日期：
+                    12月8日-12月13日至水平方客服即可领取</li>
+                <li>中奖者凭中奖通知前来领取。</li>
+            </ul>
+            <a>
+                <img src="images/x.png" alt="">
+            </a>
+        </div>
+    </div>
+    <script>
+     $(function(){
+        $('body').on('touchmove',function(e){
+            e.preventDefault;
+        })
+        $('#index').css("height",$('body').height())
+        $('input').on('touchstart',function(){
+            setTimeout(function(){
+                $('body').scrollIntoView(/*true和false选填,根据对齐方式*/);
+            },400);
+        });
+        $('.btnrule').click(function(){
+            $('.rule').show("hide");
+        })
+        $('.rule').click(function(){
+            $('.rule').hide();
+        })
+     })
+   </script>
+</body>
+</html>

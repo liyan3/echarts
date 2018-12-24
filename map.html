@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>选择城市</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/loader.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/rem.js"></script>
+    <style>
+       body>canvas{
+            display: none;
+        }
+    </style>
+    <script>
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        }); 
+    </script>
+</head>
+<body style="height: 130%;">
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <div class="load_title">正在加载<br><span></span></div>
+    </div>
+    <div id="map">
+        <img src="images/inqiqiu.png" alt="" class="inqiqiu animated fadeIn">
+        <img src="images/logo.png" style="width: 40%;" class="logo animated bounceInDown" onclick="javascript:return false">
+        <div class="mapW2">
+            <img src="images/w2.png" alt="">
+        </div>
+        <div class="my">
+           <p>昵称昵称</p>
+           <div>
+               <p>吃遍中国&nbsp;&nbsp;<span>1</span>&nbsp;&nbsp;个省区，<span>20</span>&nbsp;&nbsp;个城市<br>
+                 超越了 &nbsp;<span>20.5%</span>&nbsp;的吃货</p>
+           </div>
+        </div>
+       <div class="map" style="width: 100%;height: 40%;">
+           <div id="container" style="height: 100%;width: 100%"></div>
+       </div>
+       <!-- 选择的城市 -->
+       <div class="my-city">
+            <p class="shui">水平方 → 亳州 → 亳州 → 亳州
+                → 亳州 → 亳州 → 亳州州 →
+            </p>
+            <div class="mao" style="display: none">...</div>
+       </div>
+       <div class="bottom">
+           <img src="images/ashare.png" alt="">
+           <img src="images/asave.png" alt="" class="asave">
+           <img src="images/areselect.png" alt="" class="areselect">
+           <img src="images/acarp.png" alt="" class="acarp">
+       </div>
+       <div class="code" style="opacity: 0;display: none">
+           <p>开奖时间：12月8日18:00<br>长按下方二维码，扫码关注，立即报名参与。</p>
+           <img src="images/code1.png" alt="">
+       </div>
+       <!-- <img src="" id="save" alt=""> -->
+       <div class="zhegai"></div>
+    </div>
+    <!-- 加载转圈 -->
+    <div class="loading flow2" style="display: none;">
+        <div></div>
+    </div>
+    <!-- 分享 -->
+    <div class="share-img" style="display: none">
+        <img src="images/share.png" alt="">
+    </div>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="js/china.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/DPR.js"></script>
+    <!-- <script src="js/city.js"></script>  -->
+    <script>
+     $(function(){
+        // document.body.addEventListener('touchmove', function (e) {
+        //     console.log(e._isScroller);
+        //     if(e._isScroller) return;
+        //     e.preventDefault(); 
+        // }, {passive: false}); //passive 参数不能省略
+        $('.city,.province').on('touchmove',function(e){
+             e.stopPropagation();
+        })
+ 
+        $('#index').css("height",$('body').height())
+        $('input').on('touchstart',function(){
+            setTimeout(function(){
+                $('body').scrollIntoView(/*true和false选填,根据对齐方式*/);
+            },400);
+        });
+       
+        console.log(sessionStorage.getItem("provence"));
+        var city = JSON.parse(sessionStorage.getItem("city"));
+        var proce = JSON.parse(sessionStorage.getItem("provence"));
+        
+        var myhtml = '';
+        for(var i=0;i<city.length;i++){
+            myhtml+=`
+                →  ${city[i]}
+            `;
+            // singleCity.push(city[i]);
+        }
+        $('.shui').html("水平方"+myhtml+"→ 水平方");
+
+        // 控制字体溢出
+        console.log($('.my-city').text().length);
+        // $('.my-city').each(function(i){
+        //     var divH=$(this).height();
+        //     console.log($(this).height());
+        //     var $p = $('p',$(this)).eq(0);
+        //     while ($p.outerHeight() >divH){
+        //     $p.text($p.text().replace(/(\s)*([a-zA-z0-9] + |\w)(\.\.\.)?$/,"..."));
+        //     }
+        // })
+
+        var dataArr=[];
+        for(var i=0;i<proce.length;i++){
+            dataArr.push({
+                name: proce[i],selected:true,value: Math.round(Math.random()*1000)
+            })
+        }
+        console.log(dataArr); 
+        // 点击生成图片
+        $('.asave').click(function(){
+            $("#map").css('padding-bottom',"0.4rem");
+            $('.code').show().css('opacity','1');
+            $(this).parent().hide();
+            $('.my-city').css('margin-bottom','1rem');
+            setTimeout(function(){
+                drawCanvas('#map');
+            },300)
+        })
+        // 重选
+        $('.areselect').click(function(){
+            location.href = "city.html";
+        })
+
+         // 结果，地图页
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+        backgroundColor:['rgba(255,255,111,0)'],
+        title : {
+            text: '',
+            subtext: '',
+            left: 'left'
+        },
+        tooltip : {
+            trigger: 'item',
+            show:false
+        },
+        visualMap:[ {
+            show:false,
+            min: 0,
+            max: 2500,
+            left: 'left',
+            top: 'bottom',
+            seriesIndex: [1],
+            realtime: false,          // 文本，默认为数值文本
+            calculable : false,
+            // color: ['#d2d2d2','#f8f8f8'],
+            target: {
+                inRange: {
+                    color: ['#ffe346'],
+                    symbolSize: [60, 2],
+                }
+            },
+        }],
+        toolbox: {
+            show: false,
+            orient : 'vertical',
+            left: 'right',
+            top: 'center',
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        geo: {
+            map: 'china',
+            roam: false,
+            clickable:false,
+            layoutSize:'100%',
+            regions: [{name: '南海诸岛', value: 0, itemStyle: {normal: {opacity: 0, label: {show: false}}}}],
+            label: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        color: 'rgba(0,0,0,0.0)'
+                    }
+                }
+            },
+            itemStyle: {
+                normal:{
+                    borderWidth: 2,
+                    shadowColor: 'rgba(0,0,0, 0.7)',
+                    shadowBlur: 2,
+                    shadowOffsetX:1,
+                    shadowOffsetY:-3
+                },
+                emphasis:{
+                    areaColor: null,
+                }
+            }
+        },
+        series : [
+            {
+                name: 'iphone3',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                clickable:false,
+                label: {
+                    normal: {
+                        show: false,
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            color: 'rgba(250,250,250, 0)',
+                            opacity:0,
+                        },
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderColor: '#fff',
+                        areaColor:["#d8d8d8","#ffffff"],
+                        borderWidth: 2,
+                        shadowColor:'#fff',
+                        shadowBlur: 5,
+                    },
+                    emphasis: {
+                        show: false,
+                    }
+                },
+                regionHeight: 4,//区域的高度
+                data:
+                dataArr
+                // [
+                //     {name: '香港',selected:true,value: Math.round(Math.random()*1000)},
+                //     {name: '天津',selected:true,value: Math.round(Math.random()*1000)},
+                //     // {name: '重庆',selected:true,value: Math.round(Math.random()*1000)}, 
+                //     // {name: '安徽',selected:true,value: Math.round(Math.random()*1000)}, 
+                // ]
+            },
+        ]
+    };
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+        onload=function f(){
+            // var picInfo = myChart.getDataURL();
+            // drawCanvas('#saveImg');
+        }
+    }
+     })
+   </script>
+</body>
+</html>

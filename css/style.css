@@ -1,0 +1,705 @@
+@charset 'UTF-8';
+.flex {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#index {
+  width: 100%;
+  height: 100%;
+  background: url('../images/4.jpg') 0 0 / 100% 100% no-repeat;
+  position: relative;
+  padding: 0.3rem 0.2rem 0.2rem;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  overflow: hidden;
+}
+.logo {
+  width: 62%;
+  position: absolute;
+  width: 60%;
+  top: 0.1rem;
+  left: 0rem;
+}
+.in1 {
+  position: absolute;
+  width: 38%;
+  bottom: -1%;
+  left: -4%;
+}
+.in2 {
+  position: absolute;
+  width: 100%;
+  top: 10%;
+}
+.touch {
+  position: absolute;
+  width: 14%;
+  bottom: 5%;
+  left: 43%;
+  animation: move 1s linear infinite;
+}
+@keyframes move {
+  0% {
+    bottom: 3%;
+  }
+  50% {
+    bottom: 5%;
+  }
+  100% {
+    bottom: 8%;
+  }
+}
+#win {
+  background: url('../images/5.png') 0 0 / 100% 100% no-repeat;
+  width: 100%;
+  height: 100%;
+  padding: 7% 0 0.3rem;
+  overflow: hidden;
+}
+.w3 {
+  position: absolute;
+  width: 30%;
+  bottom: 1%;
+  right: 0;
+}
+.who {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  height: 50%;
+}
+.time {
+  color: #fff;
+}
+.time h3 {
+  font-size: 0.32rem;
+  font-weight: 700;
+}
+.time h5 {
+  font-size: 0.26rem;
+  line-height: 0.6rem;
+  font-weight: 600;
+}
+.time p {
+  font-size: 0.2rem;
+}
+.w2 {
+  width: 50%;
+}
+.tou {
+  width: 100%;
+  margin-top: 0.2rem;
+}
+.tou > img {
+  width: 1rem;
+  border-radius: 50%;
+}
+.tou > p {
+  font-size: 0.46rem;
+  color: #fff;
+  margin-top: 0.1rem;
+  font-weight: bold;
+}
+.btnback {
+  width: 32%;
+  display: block;
+  margin: 0.2rem auto 0;
+}
+.carp11 {
+  position: absolute;
+  width: 18%;
+  top: 6%;
+  left: 6%;
+  animation: carp3 10s linear infinite;
+}
+.carp12 {
+  position: absolute;
+  width: 11%;
+  top: 60%;
+  left: 20%;
+  animation: carp2 7s linear infinite;
+}
+.carp13 {
+  position: absolute;
+  width: 16%;
+  top: 10%;
+  right: 4%;
+  animation: carp1 3s linear infinite;
+}
+@keyframes carp1 {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(0.8) rotate(-80deg);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes carp2 {
+  0% {
+    transform: translate3d(0, 100px, 0) rotate(-20deg);
+  }
+  25% {
+    transform: translate3d(100px, -300px, 0) rotate(40deg);
+  }
+  50% {
+    transform: translate3d(100px, -300px, 0) rotate(180deg);
+  }
+  75% {
+    transform: translate3d(100px, -100px, 0) rotate(160deg);
+  }
+  100% {
+    transform: translate3d(200px, 100px, 0) rotate(200deg);
+  }
+}
+@keyframes carp3 {
+  0% {
+    transform: translate3d(0, 100px, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(100px, 300px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(200px, 300px, 0) rotate(-180deg);
+  }
+  75% {
+    transform: translate3d(200px, -100px, 0) rotate(20deg);
+  }
+  100% {
+    transform: translate3d(200px, 100px, 0) rotate(0deg);
+  }
+}
+#main {
+  width: 100%;
+  height: 100%;
+  background: url('../images/4.jpg') 0 0 / 100% 100% no-repeat;
+  padding-top: 30%;
+}
+#main > div {
+  font-size: 0.3rem;
+  color: #fff;
+  line-height: 0.55rem;
+  width: 100%;
+  top: 20%;
+}
+.btnrule {
+  position: absolute;
+  width: 16%;
+  top: 6%;
+  right: 6%;
+}
+.begin {
+  width: 30%;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  background: #ea3b4a;
+  font-size: 0.3rem;
+  color: #fff;
+  border-radius: 13px;
+  letter-spacing: 3px;
+  position: absolute;
+  bottom: 9%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  box-shadow: 0px 6px 0px #c02630;
+}
+#city {
+  background: url('../images/3.png') 0 0 / 100% 100% no-repeat;
+  width: 100%;
+  height: 100%;
+  padding: 0.4rem 0.2rem 0.3rem 0.3rem;
+}
+.all {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  height: 100%;
+  overflow: hidden;
+}
+.province {
+  width: 29%;
+  height: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.province > div {
+  position: relative;
+  font-size: 0.26rem;
+  color: #000;
+  width: 1.4rem;
+  line-height: 0.6rem;
+  height: 0.6rem;
+  border-radius: 5px;
+  background: #fff;
+  margin-top: 0.2rem;
+}
+.province div.active {
+  background: #fff100;
+}
+.city {
+  width: 71%;
+  max-height: 90%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.city > div {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  flex-wrap: wrap;
+  max-height: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 0.2rem;
+}
+.city > div p {
+  font-size: 0.26rem;
+  width: 1.1rem;
+  height: 0.5rem;
+  line-height: 0.43rem;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  color: #fff;
+  margin: 0.1rem;
+}
+.city > div p.active {
+  color: #000;
+  background: #fff100;
+}
+.select {
+  display: inline-block;
+  color: #fff;
+  background: #ff0000;
+  font-size: 0.2rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 3%;
+  top: 0.16rem;
+}
+.submit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 26%;
+  left: 46%;
+  bottom: 4%;
+}
+#map {
+  background: url('../images/3.png') 0 0 / 100% 100% no-repeat;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 10%;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  padding-bottom: 1.2rem;
+}
+.mapW2 {
+  width: 45%;
+}
+.my {
+  width: 80%;
+  margin: 0 auto;
+  position: absolute;
+  left: 10%;
+  top: 26%;
+}
+.my > p {
+  font-size: 0.38rem;
+  color: #ffe346;
+  margin-bottom: 0.1rem;
+}
+.my > div {
+  font-size: 0.28rem;
+  color: #fff;
+}
+.my > div span {
+  color: #ffe346;
+  font-size: 0.5rem;
+}
+.map {
+  width: 100%;
+  height: 55%;
+  margin-top: 24%;
+  position: relative;
+}
+.china {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.my-city {
+  width: 96%;
+  height: 2.2rem;
+  font-size: 0.2rem;
+  color: #fff;
+  text-align: left;
+  padding: 0 0.3rem 0 0.2rem;
+  position: relative;
+  overflow: hidden;
+}
+.my-city > p {
+  width: 100%;
+  position: relative;
+}
+.my-city span {
+  color: #fff;
+  margin: 0 0.08rem;
+}
+.mao {
+  font-size: 0.34rem;
+  position: absolute;
+  right: 3%;
+  bottom: 0%;
+}
+.bottom {
+  width: 100%;
+  height: 1.2rem;
+  background: rgba(255, 255, 255, 0.5);
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  align-items: center;
+  -webkit-align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.bottom img {
+  width: 15%;
+}
+.bottom .areselect,
+.bottom .acarp {
+  width: 8.6%;
+}
+.code {
+  position: absolute;
+  width: 98%;
+  bottom: 0%;
+  right: 1%;
+  margin: 0 auto;
+  padding-bottom: 0.2rem;
+  margin-top: 0.3rem;
+  z-index: 0;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.code div {
+  font-size: 0.24rem;
+  color: #fff;
+  text-align: left;
+}
+.code img {
+  width: 20%;
+}
+#save {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+@media screen and (max-width: 360px) {
+  .map {
+    height: 46%;
+  }
+  .mapW2 {
+    width: 40%;
+  }
+  .my {
+    top: 24%;
+  }
+  .my p {
+    margin-bottom: 0;
+  }
+  .bottom {
+    height: 1rem;
+  }
+  .bottom img:last-child {
+    width: 8%;
+  }
+}
+.zhegai {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  left: 0;
+  top: 18%;
+  z-index: 1;
+}
+.inqiqiu {
+  position: absolute;
+  width: 15%;
+  right: 0;
+  top: 0;
+  z-index: 99;
+}
+.loading > div {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0 ;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.3);
+  border-top: 1px dotted rgba(0, 0, 0, 0.3);
+  border-bottom: 3px dotted rgba(0, 0, 0, 0.8);
+  border-left: 2px dotted rgba(0, 0, 0, 0.6);
+  border-right: 3px dotted #000000;
+  animation: loading 1.5s linear infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.flow2 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.6);
+}
+#chat {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  padding-bottom: 0.2rem;
+}
+#chat > img:last-child {
+  width: 65%;
+}
+.intro {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  width: 96%;
+}
+.intro > img {
+  width: 0.8rem;
+  border-radius: 50%;
+}
+.intro p {
+  font-size: 0.26rem;
+  text-align: left;
+}
+.baseKuang > div {
+  width: 4.5rem;
+  margin: 30% auto 0rem;
+  position: relative;
+  background: #fff;
+  height: 3.7rem;
+}
+.baseKuang > div > div {
+  font-size: 0.3rem;
+  color: #4d4d4d;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 90%;
+  line-height: 0.5rem;
+  font-weight: bold;
+}
+.baseKuang > div > div p {
+  font-size: 0.2rem;
+}
+.baseKuang a {
+  width: 1.6rem;
+  position: absolute;
+  bottom: 14%;
+  left: 1.51rem;
+}
+.rule > div {
+  width: 5.2rem;
+  height: 7rem;
+  margin: 20% auto 0;
+  background: url('../images/ruleBg.png') no-repeat 0 0 / 100% 100%;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  align-items: center;
+  -webkit-align-items: center;
+  padding: 1.1rem 0 0.4rem;
+  position: relative;
+}
+.rule > div a {
+  width: 0.6rem;
+  position: absolute;
+  bottom: -15%;
+  right: 43%;
+}
+.rule > div ul {
+  width: 4.4rem;
+  flex: auto;
+  font-size: 0.26rem;
+  text-align: left;
+  color: #fff;
+  line-height: 1.5;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  margin-left: 0.1rem;
+}
+.rule > div ul span {
+  font-weight: 600;
+}
+.note > div {
+  position: fixed;
+  width: 100%;
+  height: 0;
+  background: #fff;
+  bottom: 0%;
+  left: 0;
+  padding: 0;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.note > div .ex {
+  width: 100%;
+  padding: 0 0.2rem;
+}
+.note > div > p {
+  font-size: 0.3rem;
+  color: #000;
+}
+.note a {
+  position: absolute;
+  top: 58%;
+  right: 0.2rem;
+  width: 8%;
+}
+.phone > div {
+  width: 4.5rem;
+  margin: 30% auto 0rem;
+  position: relative;
+  background: #fff;
+  height: 3.7rem;
+}
+.phone > div > div {
+  position: absolute;
+  top: 16%;
+  left: 5%;
+  width: 90%;
+  color: #000;
+}
+.phone > div > div > p {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  width: 90%;
+  margin: 0.2rem auto 0rem;
+}
+.phone > div > div > p span {
+  font-size: 0.3rem;
+  color: #000;
+}
+.phone > div > div > p input {
+  border: 1px solid #0065a7;
+  width: 64%;
+  height: 0.6rem;
+  padding-left: 0.1rem;
+  font-size: 0.24rem;
+  color: #000;
+}
+.phone a {
+  width: 1.8rem;
+  position: absolute;
+  bottom: 14%;
+  left: 1.4rem;
+}
+.share-img {
+  z-index: 999;
+}
+.share-img img {
+  width: 100%;
+  height: 100%;
+}

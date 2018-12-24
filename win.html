@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>锦鲤</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/rem.js"></script>
+</head>
+<body>
+    <div id="win">
+        <img src="images/inqiqiu.png" alt="" class="inqiqiu animated fadeIn">
+        <img src="images/in1.png" class="in1 animated" style="left: -4%;width: 20%;" onclick="javascript:return false">
+        <img src="images/w3.png" class="w3 animated" onclick="javascript:return false">
+        <div>
+            <!-- 锦鲤 -->
+            <img src="images/yu.gif" class="carp11" onclick="javascript:return false">
+            <img src="images/carp12.png" class="carp12" onclick="javascript:return false">
+            <img src="images/carp13.png" class="carp13" onclick="javascript:return false"> 
+        </div>
+        <div>
+            <img src="images/w2.png" class="w2 animated bounceInDown" onclick="javascript:return false">
+            <img src="images/w1.png" class="w1 animated" onclick="javascript:return false">
+        </div>
+        <div class="who">
+            <div class="tou">
+                <img src="images/tou.png" alt="">
+                <p>暂未开奖</p>
+            </div>
+            <div class="time">
+                <h3>公布时间</h3>
+                <h5>12月7日12:00</h5>
+                <p>中奖用户请12月7日-12月9日 <br>
+                     到水平方商场服务台出示手机中奖页面领取。
+                </p>
+            </div>
+        </div>
+        <a href="javascript:void(0)" class="btnback">
+            <img src="images/btnback.png" alt="">
+        </a>
+    </div> 
+    <script>
+     $(function(){
+        $('body').on('touchmove',function(e){
+            e.preventDefault;
+        })
+        $('#index').css("height",$('body').height())
+        $('input').on('touchstart',function(){
+            setTimeout(function(){
+                $('body').scrollIntoView(/*true和false选填,根据对齐方式*/);
+            },400);
+        });
+        console.log((false==0))
+     })
+   </script>
+</body>
+</html>

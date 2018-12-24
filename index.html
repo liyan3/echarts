@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/rem.js"></script>
+</head>
+<body>
+    <div id="index">
+        <img src="images/logo.png" class="logo animated bounceInDown" onclick="javascript:return false">
+        <img src="images/in1.png" style="width: 24%;" class="in1 animated slideInLeft" onclick="javascript:return false">
+        <img src="images/in2.png" class="in2 animated" onclick="javascript:return false">
+        <a href="javascript:void(0)" class="touch">
+            <img src="images/arror.png" alt="">
+        </a>
+    </div> 
+    <script>
+     $(function(){
+        $('body').on('touchmove',function(e){
+            e.preventDefault;
+        })
+        $('#index').css("height",$('body').height())
+        $('input').on('touchstart',function(){
+            setTimeout(function(){
+                $('body').scrollIntoView(/*true和false选填,根据对齐方式*/);
+            },400);
+        });
+        
+        movePage($('#index'));
+         function movePage(dom){
+             var startY,moveY,moveSpave;
+            dom.on('touchstart',function(e){
+               startY = e.originalEvent.touches[0].pageY;
+               return startY;
+            })
+            dom.on('touchmove',function(e){
+              e.preventDefault();
+              moveY = e.originalEvent.touches[0].pageY;
+              moveSpave = startY - moveY;
+              if(moveSpave > 15){
+                  location.href = "city.html";
+              }                
+            })
+         } 
+     })
+   </script>
+</body>
+</html>
